@@ -1,5 +1,5 @@
 import express from "express"
-import mongoDBConnect from "./config/connect";
+import mongoDBConnect from "./config/db";
 
 const port =3000
 const app= express()
