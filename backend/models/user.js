@@ -38,6 +38,11 @@ const userScehma = mongoose.Schema(
       type: Boolean,
       default: false,
     },
+
+    pincode: {
+      type: Number,
+      required: true,
+    },
   },
   { timestamps: true }
 );
