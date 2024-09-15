@@ -1,4 +1,4 @@
-import SearchBox from "./SearchBox.jsx"
+import SearchBox from "./SearchBox/SerachBox.jsx"
+import Header from "./Header/Header.jsx"
 
-
-export { SearchBox } 
+export { SearchBox, Header }
