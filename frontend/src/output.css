@@ -554,9 +554,42 @@ video {
   --tw-contain-style:  ;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.bottom-4 {
+  bottom: 1rem;
+}
+
+.left-1\/2 {
+  left: 50%;
+}
+
+.left-4 {
+  left: 1rem;
+}
+
+.right-4 {
+  right: 1rem;
+}
+
+.top-1\/2 {
+  top: 50%;
+}
+
 .mx-3 {
   margin-left: 0.75rem;
   margin-right: 0.75rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .my-2 {
@@ -564,12 +597,36 @@ video {
   margin-bottom: 0.5rem;
 }
 
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .flex {
   display: flex;
 }
 
+.h-3 {
+  height: 0.75rem;
+}
+
+.h-31rem {
+  height: 31rem;
+}
+
+.h-32 {
+  height: 8rem;
+}
+
+.h-48 {
+  height: 12rem;
+}
+
 .h-8 {
   height: 2rem;
+}
+
+.h-auto {
+  height: auto;
 }
 
 .h-screen {
@@ -581,8 +638,16 @@ video {
   min-height: fit-content;
 }
 
-.w-5\/6 {
-  width: 83.333333%;
+.w-3 {
+  width: 0.75rem;
+}
+
+.w-40 {
+  width: 10rem;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .w-screen {
@@ -594,12 +659,34 @@ video {
   min-width: fit-content;
 }
 
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.-translate-x-1\/2 {
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-1\/2 {
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
 
 .flex-col {
   flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .items-center {
@@ -610,8 +697,35 @@ video {
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
 .rounded-sm {
   border-radius: 0.125rem;
+}
+
+.bg-custom-headerBlue {
+  --tw-bg-opacity: 1;
+  background-color: rgb(39 50 66 / var(--tw-bg-opacity));
 }
 
 .bg-gray-200 {
@@ -619,14 +733,66 @@ video {
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
+.bg-gray-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+}
+
+.bg-gray-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.object-fill {
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+.object-center {
+  -o-object-position: center;
+     object-position: center;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
 
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.pl-14 {
+  padding-left: 3.5rem;
+}
+
+.pt-3 {
+  padding-top: 0.75rem;
 }
 
 .text-3xl {
@@ -643,6 +809,137 @@ video {
   font-weight: 700;
 }
 
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .underline {
   text-decoration-line: underline;
+}
+
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-500 {
+  transition-duration: 500ms;
+}
+
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Header.css */
+
+/* Style for the entire navigation bar */
+
+.home-button {
+  background-color: #003366;
+  /* Bright Blue */
+  color: #ffffff;
+  /* White text */
+  border: none;
+  border-radius: 0.375rem;
+  /* Tailwind's rounded-md */
+  padding: 0.45rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.home-button:hover{
+  opacity: 0.8;
+  /* Slightly transparent on hover */
+}
+
+/* Style for the logo */
+
+.logo img {
+  height: 8rem;
+  /* Adjust as needed */
+  width: 10rem;
+  /* Adjust as needed */
+  -o-object-fit: cover;
+     object-fit: cover;
+  /* Ensures the logo maintains its aspect ratio */
+}
+
+/* Flexbox layout for the authentication section */
+
+.auth {
+  display: flex;
+  align-items: center;
+}
+
+/* Common button styles for all authentication buttons */
+
+.auth-button {
+  border: none;
+  border-radius: 0.375rem;
+  /* Tailwind's rounded-md */
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Specific styles for the Login button */
+
+.login-button {
+  background-color: #007bff;
+  /* Midnight Blue */
+  color: #ffffff;
+  /* White text */
+}
+
+/* Style for the Sign Up button with Electric Purple */
+
+/* Header.css */
+
+/* Style for the Login button with Royal Blue */
+
+.login-button {
+  background-color: #333333;
+  /* Charcoal Gray */
+  color: #ffffff;
+  /* White text */
+}
+
+/* Style for the Sign Up button with Electric Purple */
+
+.signup-button {
+  background-color: #6F42C1;
+  /* Electric Purple */
+  color: #ffffff;
+  /* White text */
+}
+
+/* Hover effect for all authentication buttons */
+
+.auth-button:hover {
+  opacity: 0.8;
+  /* Slightly transparent on hover */
+}
+
+/* Active effect for all authentication buttons */
+
+.auth-button:active {
+  opacity: 1;
+  transform: scale(0.98);
+  /* Slightly shrink on click */
+}
+
+/* Style for the welcome text */
+
+.welcome-text {
+  margin-right: 1rem;
+  color: #ffffff;
+  /* White text color for contrast */
+  font-size: 1rem;
+  /* Adjust as needed */
 }

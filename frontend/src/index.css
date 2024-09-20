@@ -1,3 +1,90 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Header.css */
+
+/* Style for the entire navigation bar */
+
+
+.home-button {
+    background-color: #003366; /* Bright Blue */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 0.375rem; /* Tailwind's rounded-md */
+    padding: 0.45rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.home-button:hover{
+    opacity: 0.8; /* Slightly transparent on hover */
+}
+/* Style for the logo */
+.logo img {
+    height: 8rem; /* Adjust as needed */
+    width: 10rem; /* Adjust as needed */
+    object-fit: cover; /* Ensures the logo maintains its aspect ratio */
+}
+
+/* Flexbox layout for the authentication section */
+.auth {
+    display: flex;
+    align-items: center;
+}
+
+/* Common button styles for all authentication buttons */
+.auth-button {
+    border: none;
+    border-radius: 0.375rem; /* Tailwind's rounded-md */
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Specific styles for the Login button */
+.login-button {
+    background-color: #007bff; /* Midnight Blue */
+    color: #ffffff; /* White text */
+}
+
+/* Style for the Sign Up button with Electric Purple */
+/* Header.css */
+
+
+/* Style for the Login button with Royal Blue */
+.login-button {
+    background-color: #333333; /* Charcoal Gray */
+    color: #ffffff; /* White text */
+}
+
+
+/* Style for the Sign Up button with Electric Purple */
+.signup-button {
+    background-color: #6F42C1; /* Electric Purple */
+    color: #ffffff; /* White text */
+}
+
+
+/* Hover effect for all authentication buttons */
+.auth-button:hover {
+    opacity: 0.8; /* Slightly transparent on hover */
+}
+
+/* Active effect for all authentication buttons */
+.auth-button:active {
+    opacity: 1;
+    transform: scale(0.98); /* Slightly shrink on click */
+}
+
+/* Style for the welcome text */
+.welcome-text {
+    margin-right: 1rem;
+    color: #ffffff; /* White text color for contrast */
+    font-size: 1rem; /* Adjust as needed */
+}
