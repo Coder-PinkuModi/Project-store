@@ -1,4 +1,4 @@
-import { SearchBox } from "../Components.js";
+import { SearchBox } from "../index.js";
 import { useState } from "react"; // To handle user state
 import storeLogo from "../../assets/store-logo.png";
 

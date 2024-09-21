@@ -1,11 +1,18 @@
 import userModel from "../models/user.js";
 import argon2 from "argon2";
-import validator from "validator"
+import validator from "validator";
 
 async function createUser(req, res) {
   //First: check f\if every needed input fields are recieved or not--
-  const { firstName, secondName, phoneNumber, email, password, reEnterPassword, pincode } =
-    req.body;
+  const {
+    firstName,
+    secondName,
+    phoneNumber,
+    email,
+    password,
+    reEnterPassword,
+    pincode,
+  } = req.body;
   if (
     !firstName ||
     !secondName ||
@@ -29,36 +36,58 @@ async function createUser(req, res) {
       .status(400)
       .json({ Error: "Passwords entered do not match, please fill again !" });
 
-   try{
+  try {
     // check whether provided email or phone number does exist in database or not
-     const existingUserEmail = await userModel.findOne( { email: email} )
-     if(existingUserEmail) return res.status(400).json({ Error: "Email is already in use"})
-     const existingUserPhoneNumber = await userModel.findOne( { phoneNumber: phoneNumber} )
-     if(existingUserPhoneNumber) return res.status(400).json({ Error: "Number is already in use"})
+    const existingUserEmail = await userModel.findOne({ email: email });
+    if (existingUserEmail)
+      return res.status(400).json({ Error: "Email is already in use" });
+    const existingUserPhoneNumber = await userModel.findOne({
+      phoneNumber: phoneNumber,
+    });
+    if (existingUserPhoneNumber)
+      return res.status(400).json({ Error: "Number is already in use" });
 
-     // hash password
-     const hashedPassword = await argon2.hash(password);
+    // hash password
+    const hashedPassword = await argon2.hash(password);
 
     // Create new user
-    await userModel.create({ // storing data in MongoDb
+    await userModel.create({
+      // storing data in MongoDb
       firstName,
       secondName,
       phoneNumber,
       email,
       password: hashedPassword,
-      pincode
+      pincode,
     });
-     res.status(201).json({ message: "User created successfully" });
-
-   }
-   catch(err){
-    console.log("error:", err)
-   }
-
+    res.status(201).json({ message: "User created successfully" });
+  } catch (err) {
+    console.log("error:", err);
+  }
 }
 
 async function loginUser(req, res) {
   const { email, password } = req.bpdy;
+  if (!email || !password) {
+    return res.status(400).json({ Error: "All input fields required" });
+  }
+
+  try{
+
+    const user= await userModel.finOne({email:email})
+    if(!user) return res.statur(400).json({Error:"User does not exist"})
+
+    // verify password
+    
+    const validPasswword= await argon2.verify(user.password, password)
+
+    if(!validPasswword) return res.status(400).json({Error:"Incorrect password"})
+
+    res.status(200).json({message:"User logged in successfully"})
+  } catch(err){
+    console.log("error: ",err)
+  }
+  
 }
 
 export { createUser, loginUser };
