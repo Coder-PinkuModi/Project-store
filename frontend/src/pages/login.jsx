@@ -1,35 +1,36 @@
 import { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom"; // Import useHistory for redirection
 
-// YET TO BE DESIGNED
-
-const Login= () => {
+const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const history = useHistory(); // Initialize useHistory
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name] : e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true)
+    setIsSubmitting(true);
     try {
       const response = await axios.post("/api/login", formData);
-      console.log("User signed up successfully", response.data);
+      console.log("User logged in successfully", response.data);
+      history.push("/dashboard"); // Redirect to the dashboard on successful login
     } catch (error) {
-      console.error("Error signing up", error);
-      setError(error.message)
+      console.error("Error logging in", error);
+      setError(error.response?.data?.message || "Login failed. Please try again.");
     } finally {
-        setIsSubmitting(false)
+      setIsSubmitting(false);
     }
   };
 
@@ -37,7 +38,7 @@ const Login= () => {
     <div>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
-      {error && <h4 style={{ color: "red" }}>{error}</h4>}
+        {error && <h4 style={{ color: "red" }}>{error}</h4>}
         <input
           type="email"
           name="email"
@@ -57,6 +58,10 @@ const Login= () => {
         <button type="submit" disabled={isSubmitting}>
           {isSubmitting ? "Logging in..." : "Login"}
         </button>
+        <p><a href="/forgot-password">Forgotten Password?</a></p>
+        <p>
+          Don't have an account? <a href="/signup">Sign up</a>
+        </p>
       </form>
     </div>
   );

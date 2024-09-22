@@ -3,7 +3,7 @@ import argon2 from "argon2";
 import validator from "validator";
 
 async function createUser(req, res) {
-  //First: check f\if every needed input fields are recieved or not--
+  //First: check if every needed input fields are recieved or not--
   const {
     firstName,
     secondName,
