@@ -46,6 +46,7 @@ async function createSeller(req, res) {
       email,
       password: hashPassword,
     });
+    res.status(201).json({ message: "seller created successfully" });
   } catch (err) {
     console.log("error: ", err);
   }

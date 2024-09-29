@@ -1,6 +1,7 @@
 import userModel from "../models/user.js";
 import argon2 from "argon2";
 import validator from "validator";
+import { jwtUserGenerate } from "../utils/authJWTSign.js"
 
 async function createUser(req, res) {
   //First: check if every needed input fields are recieved or not--
@@ -60,7 +61,7 @@ async function createUser(req, res) {
       password: hashedPassword,
       pincode,
     });
-    res.status(201).json({ message: "User created successfully" });
+    return res.status(201).json({ message: "User created successfully" });
   } catch (err) {
     console.log("error:", err);
   }
@@ -83,11 +84,22 @@ async function loginUser(req, res) {
 
     if(!validPasswword) return res.status(400).json({Error:"Incorrect password"})
 
-    res.status(200).json({message:"User logged in successfully"})
+    const jwtToken= jwtUserGenerate(user.id, user.email)
+
+    res.cookie("userToken", jwtToken, {
+      maxAge: 7*24*60*60*1000,
+      httpOnly: true
+    })
+
+    return res.status(200).json({message:"User logged in successfully"})
   } catch(err){
     console.log("error: ",err)
   }
   
+}
+
+async function logoutUser(req, res) {
+  res.status(200).json({ message: "User logged out successfully" });
 }
 
 export { createUser, loginUser };
